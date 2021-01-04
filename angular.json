@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "appWebAdmin"
+    }
+  },
+  "defaultProject": "appWebAdmin",
+  "cli": {
+    "analytics": "40dbb6fc-2235-46bc-a7bb-69ba645dedea"
+  }
 }
