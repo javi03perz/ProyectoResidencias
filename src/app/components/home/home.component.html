@@ -1,1 +1,36 @@
-<p>home works!</p>
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon class="icon example-space">menu</mat-icon></button>
+      <img  class="ml-4" src="../../../assets/img/sep.png" width="100px">
+      <h1 class="example-app-name">Secundaria Ignacion Allende</h1>
+     
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="sidenav">
+        <mat-nav-list>
+          <a class="" mat-list-item routerLink="/" routerLinkActive="active" >
+            <mat-icon class="icon example-space" color="primary">home</mat-icon>&nbsp;Inicio
+        </a>
+        <a class="" mat-list-item routerLink="/detalle" routerLinkActive="active" >
+            <mat-icon class="icon example-space" color="primary">book</mat-icon>&nbsp;Alumnos
+        </a>
+        <a class="" mat-list-item routerLink="/usuario" routerLinkActive="active" >
+            <mat-icon class="icon example-space" color="primary">dashboard</mat-icon>&nbsp;Profesores
+        </a>
+        <a class="" mat-list-item routerLink="/administracion" routerLinkActive="active" >
+            <mat-icon class="icon example-space" color="primary">featured_play_list</mat-icon>&nbsp;Administracion
+        </a>
+        </mat-nav-list>
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
+  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

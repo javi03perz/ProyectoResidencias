@@ -1,0 +1,38 @@
+<div class="container">
+   <div class="row mt-4 text-center">
+     <div class="col-sm-12 col-md-6">
+         <h5>Total de Alumnos</h5>
+         <hr>
+         <div style="display: block">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>
+        </div>
+        <div class="col-sm col-md-6">
+            <h5>Aprobados</h5> 
+            <hr>
+            <div style="display: block">
+                <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                 
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+                </canvas>
+              </div>
+           
+        </div>
+     
+   </div>
+    <div class="row mt-4">
+       <div class="col-12">
+   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa provident maxime quaerat? Sapiente aut quidem, voluptatum sunt nostrum ratione id voluptas? Ducimus ratione officiis esse, a perferendis eum ex at!</p>
+       </div>
+    </div>
+</div>     
+   
+

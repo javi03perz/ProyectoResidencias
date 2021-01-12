@@ -1,0 +1,58 @@
+.background {
+    background: url("../../../assets/img/fondo.jpg") ;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* position: absolute; */
+    position: relative;
+    height: 100%;
+
+}
+.h{
+    height: 100vh;
+}
+
+.text-l {
+    font-family: "Lato", sans-serif;
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+.text-l h2{
+    font-weight: 300;
+}
+
+.sidenav {
+    height: 100%;
+    position: relative;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+form{
+    margin-top: 10%;
+}
+.ho:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 450px) {
+   .h{
+      height: 50vh; 
+   } 
+   .text-l {
+    margin-top: 15%;
+    padding: 30px;
+   }
+   .text-l h2{
+    font-weight: 100; 
+   }
+}
+/* 
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+}
+
+*/
