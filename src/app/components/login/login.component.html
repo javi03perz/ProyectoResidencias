@@ -16,25 +16,25 @@
          </div>
          <div class="row">
             <div class="col-12">
-              <form>
+              <form [formGroup]="loginForm" (ngSubmit)=login()>
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label>Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input type="email" formControlName="email" class="form-control"  placeholder="Email">
                   </div>
                   <div class="form-group col-md-12">
                     <label>Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="password" formControlName="password" class="form-control"  placeholder="Password">
                   </div>
                 </div>
                 <div class="row mb-3">
                  <div class="col-12">
-                  <button class="badge badge-success ho" (click)="register()">Registrarse</button>
+                  <a routerLink="/register" class="badge badge-success ho">Registrarse</a>
                  </div>
                 </div>
                  <div class="row">
                     <div class="col-12">
-                      <button type="submit" (click)="login()" class="btn btn-block btn-dark">Login</button>
+                      <button  [disabled]="loginForm.invalid" type="submit"  class="btn btn-block btn-dark">Login</button>
                     </div>
                  </div>
                 

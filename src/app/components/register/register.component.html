@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class=" im">
+    <div class="row justify-content-center ">
+        <div class="col-5 mt-5">
+          <h3 class="text-center">Registro</h3> 
+          <hr class="bg-white">
+           <form [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Nombre</label>
+                <input formControlName="nombre" type="text" class="form-control"  placeholder="Nombre">
+                <div class="form-group colo text-center mt-2">
+                  <span class="bg-white colo">
+                    <i *ngIf="registerForm.get('nombre').valid" class="fa fa-check-circle "></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group col-md-12">
+                <label>Correo</label>
+                <input formControlName="correo" type="email" class="form-control"  placeholder="Correo">
+                <div class="form-group colo text-center mt-2">
+                  <span class="bg-white colo">
+                    <i *ngIf="registerForm.get('correo').valid" class="fa fa-check-circle"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group col-md-12">
+                <label>Password</label>
+                <input formControlName="password" type="password" class="form-control"  placeholder="Password">
+                <div class="form-group colo text-center mt-2">
+                  <span class="bg-white colo">
+                    <i *ngIf="registerForm.get('password').valid" class="fa fa-check-circle"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row mb-3">
+             <div class="col-12">
+              <button type="submit" class="btn btn-danger btn-block ho"
+                      [disabled]="registerForm.invalid" *ngIf="!cargando">Registrarse</button>
+                      <button type="button" *ngIf="cargando" class="btn btn-primary submit-btn btn-block">
+                        <i  class="fa da-spin fa-sync"></i>
+                        Espere...
+                      </button>
+             </div>
+            </div>
+            <div class="text-block text-center my-3">
+              <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
+              <br>
+              <a routerLink="/login" class="text-black text-small">Login</a>
+            </div>
+            
+           
+            
+          </form>
+        </div>
+    </div>
+</div>

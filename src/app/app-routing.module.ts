@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { GraficasComponent } from './components/graficas/graficas.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+import { AuthGuard } from './services/auth.guard';
 const routes: Routes = [
   { path: 'login' , component: LoginComponent},
   { path: 'register' , component: RegisterComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
                     
                     { path: 'detalle' , component: DetalleComponent},
                     { path: 'administracion' , component: AdministracionComponent},
-                   ]
+                   ],
+                   canActivate: [AuthGuard]
                    },
   { path: '**' , redirectTo: 'login'},
 ];

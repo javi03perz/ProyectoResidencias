@@ -12,6 +12,13 @@ import { GraficasComponent } from './components/graficas/graficas.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+
+// firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +36,12 @@ import { AdministracionComponent } from './components/administracion/administrac
   AppRoutingModule,
   MaterialModule,
   BrowserAnimationsModule,
-  ChartsModule
+  ChartsModule,
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFirestoreModule ,
+  AngularFireAuthModule,
+  ReactiveFormsModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

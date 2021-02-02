@@ -1,0 +1,16 @@
+.t{
+    margin-top: 10%;
+}
+.colo{
+    background-color: #ccf8f8;
+}
+.im {
+    background: url("../../../assets/img/register.jpg") ;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* position: absolute; */
+    position: relative;
+    /* height: 100%; */
+    height: 100vh;
+}

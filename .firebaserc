@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "residencias-23f94": {
+      "hosting": {
+        "appWebAdmin": [
+          "residencias-23f94"
+        ]
+      }
+    }
+  }
+}
