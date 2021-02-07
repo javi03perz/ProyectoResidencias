@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     const {email , password} = this.loginForm.value; 
     this._loginService.loginUsuario( email, password)
         .then( user=> {
-          console.log('%c login con exito ','color:red;font-size:32px', user);
+          console.log('%c login con exito ','color:red;font-size:32px', user.user.email);
+          localStorage.setItem('email', user.user.email)
           Swal.close();
           this._router.navigate(['/']);
         })

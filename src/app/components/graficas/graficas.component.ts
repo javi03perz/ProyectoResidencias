@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MultiDataSet, Label } from 'ng2-charts';
 import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -35,9 +36,12 @@ export class GraficasComponent implements OnInit {
     { data: [65, 59, 80, ], label: 'Aprovados' },
     { data: [28, 48, 40, ], label: 'Reprobados' }
   ];
-  constructor() { }
+  constructor(private loginService : LoginService) { }
 
   ngOnInit(): void {
+    // this.loginService.getUser().subscribe( resp => {
+    //   console.log('espero el usuer' , resp);
+    // })
   }
 
 }

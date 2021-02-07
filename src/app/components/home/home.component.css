@@ -9,9 +9,9 @@
   }
   
   .example-is-mobile .example-toolbar {
-    position: fixed;
+    /* position: fixed; */
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
+    z-index: 1;
     background: #1B2741;
     color: #fff;
   }
@@ -26,7 +26,7 @@
   .example-sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
+       flex: 1 ;
     
   }
   /* mat-nav-list{
@@ -36,7 +36,7 @@
   .example-is-mobile .example-sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
+       flex: 1 1 auto;
   }
 
   /* Tamañao de sivedar en pantalla */
@@ -63,4 +63,13 @@
 
   button{
     background-color:#1B2741;
+  }
+
+  .user{
+    /* margin-left: 40%; */
+    font-size: small;
+    line-height: 20%;
+  }
+  .l{
+    margin-left: 420px !important;
   }

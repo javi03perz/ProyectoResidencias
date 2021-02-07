@@ -1,1 +1,70 @@
-<p>detalle works!</p>
+<div class="container">
+  <div class="row mt-3">
+      <div class="col-6 text-center">
+         <h6>Creacion de Tarea</h6>
+         <hr>
+        <img src="../../../assets/img/tareas.jpg" class="figure-img mw-100 img-fluid rounded">
+      </div>
+      <div class="col-6">
+        <form [formGroup]="tareaForm" (ngSubmit)="crearTarea()">
+            <div class="form-row">
+              <div class="form-group  col-md-12 ">
+                <label>Nombre de Tarea</label>
+                <input formControlName="nombre" type="text" class="form-control"  placeholder="Nombre">
+                <div class="form-group colo text-center mt-1 rounded ">
+                  <span class="bg-white colo">
+                    <i *ngIf="tareaForm.get('nombre').valid" class="fa fa-check-circle "></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group col-md-12">
+                <label>Materia</label>
+              <select formControlName="materia" class="form-control form-control-sm">
+                <option value="Español">Español</option>
+                <option value="Matematicas">Matematicas</option>
+              </select>
+              <div class="form-group colo text-center mt-1 rounded">
+              <span class="bg-white colo">
+                <i *ngIf="tareaForm.get('materia').valid" class="fa fa-check-circle"></i>
+              </span>
+              </div>
+                 
+              </div>
+              <div class="form-group col-md-12">
+              <label>Grupo</label>
+              <select formControlName="grupo" class="form-control form-control-sm">
+                <option value="A1">1A</option>
+                <option value="1B">1B</option>
+              </select>
+              <div class="form-group colo text-center mt-1 rounded">
+              <span class="bg-white colo">
+                <i *ngIf="tareaForm.get('grupo').valid" class="fa fa-check-circle"></i>
+              </span>
+              </div>
+              </div>
+              <div class="form-group col-md-12">
+                <label>Tarea</label><br>
+                <textarea name="textarea" formControlName="tarea" rows="6" cols="64"></textarea>
+                <div class="form-group colo text-center mt-1 rounded">
+                    <span class="bg-white colo">
+                      <i *ngIf="tareaForm.get('tarea').valid" class="fa fa-check-circle"></i>
+                    </span>
+                    </div>
+              </div>
+            </div>
+            
+            <div class="row mb-3">
+             <div class="col-12">
+              <button type="submit" class="btn btn-danger btn-block ho"
+                      [disabled]="tareaForm.invalid">Crear</button>
+                  
+             </div>
+            </div>
+            
+            
+           
+            
+          </form>
+    </div>
+  </div>
+</div>

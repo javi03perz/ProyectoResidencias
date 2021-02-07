@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { EventEmitter } from 'events';
+
+import { Observable, of, Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { Usuario } from '../models/usuario.model';
@@ -11,18 +13,17 @@ import { Usuario } from '../models/usuario.model';
 export class LoginService {
  public userSubscription : Subscription;
  private _user: Usuario;
- get user(){
-  return this._user;
-}
+ private stateUser = new Subject<any>();
+ public stateUserObs$ = this.stateUser.asObservable();
   constructor(public auth: AngularFireAuth,
               private _firestore: AngularFirestore,) { }
 
 
-  public crearUusario(nombre: string, email:string, password:string):Promise<any> {
+  public crearUusario(nombre: string, email:string, perfil:string, password:string):Promise<any> {
 
       return this.auth.createUserWithEmailAndPassword(email, password)
                     .then( ({user}) => {
-                     const newUser = new Usuario(user.uid , nombre , user.email);
+                     const newUser = new Usuario(user.uid , nombre , perfil, user.email);
                         return   this._firestore.doc(`${user.uid}/usuario`).set( {...newUser})
                   })
      }
@@ -45,7 +46,12 @@ public loginUsuario(email:string, password:string):Promise<any> {
         .subscribe( (fireStoreUser: any) => {
           const user = Usuario.fromFirebase(fireStoreUser)
           this._user = user;
-           console.log('obten firebase', this._user);
+          if(this._user != null || undefined){
+           console.log('es diferente de  vacio');
+            this.stateUser.next(this._user);
+          }
+          // console.log(this._user);
+          //  localStorage.setItem('user', this._user.nombre);
         })
     }else {
        console.log('llamar al unset user ');
@@ -61,4 +67,10 @@ public isAuth():Observable<boolean> {
     map( fUser =>  fUser != null)
   )
 }
+
+
+public getUserPerfil(){
+   return of(this._user);
+}
+
 }

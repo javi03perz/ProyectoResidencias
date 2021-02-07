@@ -14,7 +14,7 @@ const routes: Routes = [
                    children : [
                     { path: '' , component:  GraficasComponent},
                     
-                    { path: 'detalle' , component: DetalleComponent},
+                    { path: 'crearTarea' , component: DetalleComponent},
                     { path: 'administracion' , component: AdministracionComponent},
                    ],
                    canActivate: [AuthGuard]

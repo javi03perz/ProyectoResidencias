@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row text-center mt-5">
         <div class="col-12">
-           <h3>Adimistracion</h3>
+           <h3>Adimistracion de tareas</h3>
            <hr>
         </div>
     </div>
@@ -13,49 +13,19 @@
             <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col"># Control</th>
+      
                     <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Detalle</th>
-                    <th scope="col">Imprimir</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Grupo</th>
+                    <th scope="col">Estatus</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>
-                        <button class="badge badge-success">
-                            Imprimir
-                         </button>
-                   
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>
-                        <button class="badge badge-success">
-                            Imprimir
-                         </button>
-                   
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>
-                        <button class="badge badge-success">
-                            Imprimir
-                         </button>
-                   
-                    </td>
+                  <tr *ngFor="let tarea of tareas ">
+                    <th scope="row">{{tarea.nombre}}</th>
+                    <td>{{tarea.materia}}</td>
+                    <td>{{tarea.grupo}}</td>
+                    <td > <span class="badge badge-success">{{tarea.entregada}}</span></td>
                   </tr>
                 </tbody>
               </table>

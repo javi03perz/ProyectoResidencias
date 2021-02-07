@@ -13,20 +13,32 @@ export class HomeComponent implements OnInit {
   public showMenu = false;
   shouldRun = true;
   mobileQuery: MediaQueryList;
-  private _user: Usuario;
+  public _user: string;
+  public perfil: string;
   private _mobileQueryListener: () => void;
   constructor(media: MediaMatcher,
     changeDetectorRef: ChangeDetectorRef, 
-    private loginService: LoginService,
+    public loginService: LoginService,
     private _router: Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-       
+       this._user = '';
    }
 
   ngOnInit(): void {
- 
+  
 
+ this.loginService.stateUserObs$.subscribe( resp => {
+   console.log('*****', resp);
+   this._user= resp.nombre;
+   this.perfil = resp.perfil;
+ })
+//  setTimeout(() => {
+//   this.loginService.getUserPerfil().subscribe(  user=> {
+//     console.log(user);
+//   })
+//  }, 1000);
+   
   }
 
   toggleMenu() {
@@ -37,6 +49,7 @@ export class HomeComponent implements OnInit {
     console.log('vamos acerrar cesion');
     this.loginService.logout().then( () => {
        this._router.navigate(['/login']);
+       localStorage.removeItem('user')
     })
   }
  

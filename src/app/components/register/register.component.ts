@@ -19,8 +19,9 @@ export class RegisterComponent implements OnInit {
   
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: ['', [Validators.required]],
       correo: ['', [Validators.required, Validators.email]],
+      perfil: ['', Validators.required],
       password: ['', Validators.required],
     })
   }
@@ -34,12 +35,12 @@ export class RegisterComponent implements OnInit {
     Swal.fire({
       title: 'Espere por favor',
       didOpen: () => {
-        Swal.showLoading()
+        Swal.showLoading() 
       }
     });
-    const { nombre , correo,  password } = this.registerForm.value;
+    const { nombre , correo, perfil,  password } = this.registerForm.value;
    console.log('vamos a firebase');
-    this._login.crearUusario(nombre, correo,password)
+    this._login.crearUusario(nombre, correo, perfil, password)
          .then( credenciales => {
            console.log(credenciales);
            
